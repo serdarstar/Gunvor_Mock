@@ -1,0 +1,1364 @@
+{
+	"info": {
+		"_postman_id": "d5737ba3-8929-4670-9ea8-c7c9bc09ac22",
+		"name": "Gunvor_Mock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "VAKT",
+			"item": [
+				{
+					"name": "vakt/getTrade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"id\", response.customerTradeId);\r",
+									"\r",
+									"pm.test(\"value validations\", () => {\r",
+									"    pm.expect(response.vaktTradeId).to.eql(\"VAKT1234\");\r",
+									"    pm.expect(response.status).to.eql(\"PAIRED\")\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/vakt/getTrade",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vakt",
+								"getTrade"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "vakt/getTrade",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/vakt/getTrade",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										"getTrade"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jul 2021 09:31:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=bf621c49bb162ca2"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=172c3dac9f4db9e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1626427939"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-z/rGfhpPIdvDGC5xy1suCSmB/pQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerTradeId\": \"E1234\",\n    \"vaktTradeId\": \"VAKT1234\",\n    \"status\": \"PAIRED\",\n    \"tradeFinanceStatus\": \"REQUESTED\",\n    \"seller\": \"LE927826721\",\n    \"buyer\": \"LE523957013\",\n    \"tradeDate\": \"2019-05-02\",\n    \"product\": \"PR28464563\",\n    \"productGrade\": \"PG2838454\",\n    \"quantity\": {\n        \"quantityType\": \"PERCENTAGE\",\n        \"unitOfMeasure\": \"BBL\",\n        \"minimum\": 1,\n        \"maximum\": 1,\n        \"baseQuantity\": 600000\n    },\n    \"quantityOption\": \"SELLER\",\n    \"invoiceQuantity\": \"load\",\n    \"pricingFormula\": {\n        \"priceType\": \"FIXED\",\n        \"currency\": \"USD\",\n        \"unitOfMeasure\": \"BBL\",\n        \"priceValue\": 81.4\n    },\n    \"credit\": \"OPEN_CREDIT\",\n    \"law\": \"ENGLISH_LAW\",\n    \"generalTermsAndConditions\": \"SUKO90\",\n    \"deliveryMonth\": \"2019-12\",\n    \"paymentTermSelector\": \"EARLIEST\",\n    \"paymentTerms\": [\n        {\n            \"paymentTermType\": \"FLOATING\",\n            \"eventBase\": \"BL\",\n            \"when\": \"AFTER\",\n            \"time\": 30,\n            \"timeUnit\": \"DAYS\",\n            \"dayType\": \"CALENDAR\",\n            \"nonQuoteDays\": \"BEFORE\",\n            \"calendar\": \"LONDON\"\n        },\n        {\n            \"paymentTermType\": \"FIXED\",\n            \"fixedDate\": \"2019-12-01\"\n        }\n    ],\n    \"deliveryTerms\": \"FOB\",\n    \"logistics\": [\n        {\n            \"modeOfTransport\": \"VESSEL\",\n            \"loadingLocation\": \"PI30196326\",\n            \"loadingStart\": \"2019-11-25 00:00\",\n            \"loadingEnd\": \"2019-11-31 00:00\",\n            \"dischargeLocation\": \"PI88201954\",\n            \"dischargeStart\": \"2019-12-25 00:00\",\n            \"dischargeEnd\": \"2019-12-31 00:00\",\n            \"laytime\": \"AS_PER_GTC\",\n            \"demurrageTerm\": \"AS_PER_GTC\",\n            \"demurrageTermsAndConditions\": \"SUKO90\",\n            \"minParcelSize\": 100000,\n            \"maxParcelSize\": 600000\n        }\n    ]\n}"
+						},
+						{
+							"name": "vakt/getTradeDetails",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/vakt/id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										"id"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jul 2021 15:54:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=bf621c49bb162ca2"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=172c3dac9f4db9e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1626427939"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-z/rGfhpPIdvDGC5xy1suCSmB/pQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerTradeId\": \"E1234\",\n    \"vaktTradeId\": \"VAKT1234\",\n    \"status\": \"PAIRED\",\n    \"tradeFinanceStatus\": \"REQUESTED\",\n    \"seller\": \"LE927826721\",\n    \"buyer\": \"LE523957013\",\n    \"tradeDate\": \"2019-05-02\",\n    \"product\": \"PR28464563\",\n    \"productGrade\": \"PG2838454\",\n    \"quantity\": {\n        \"quantityType\": \"PERCENTAGE\",\n        \"unitOfMeasure\": \"BBL\",\n        \"minimum\": 1,\n        \"maximum\": 1,\n        \"baseQuantity\": 600000\n    },\n    \"quantityOption\": \"SELLER\",\n    \"invoiceQuantity\": \"load\",\n    \"pricingFormula\": {\n        \"priceType\": \"FIXED\",\n        \"currency\": \"USD\",\n        \"unitOfMeasure\": \"BBL\",\n        \"priceValue\": 81.4\n    },\n    \"credit\": \"OPEN_CREDIT\",\n    \"law\": \"ENGLISH_LAW\",\n    \"generalTermsAndConditions\": \"SUKO90\",\n    \"deliveryMonth\": \"2019-12\",\n    \"paymentTermSelector\": \"EARLIEST\",\n    \"paymentTerms\": [\n        {\n            \"paymentTermType\": \"FLOATING\",\n            \"eventBase\": \"BL\",\n            \"when\": \"AFTER\",\n            \"time\": 30,\n            \"timeUnit\": \"DAYS\",\n            \"dayType\": \"CALENDAR\",\n            \"nonQuoteDays\": \"BEFORE\",\n            \"calendar\": \"LONDON\"\n        },\n        {\n            \"paymentTermType\": \"FIXED\",\n            \"fixedDate\": \"2019-12-01\"\n        }\n    ],\n    \"deliveryTerms\": \"FOB\",\n    \"logistics\": [\n        {\n            \"modeOfTransport\": \"VESSEL\",\n            \"loadingLocation\": \"PI30196326\",\n            \"loadingStart\": \"2019-11-25 00:00\",\n            \"loadingEnd\": \"2019-11-31 00:00\",\n            \"dischargeLocation\": \"PI88201954\",\n            \"dischargeStart\": \"2019-12-25 00:00\",\n            \"dischargeEnd\": \"2019-12-31 00:00\",\n            \"laytime\": \"AS_PER_GTC\",\n            \"demurrageTerm\": \"AS_PER_GTC\",\n            \"demurrageTermsAndConditions\": \"SUKO90\",\n            \"minParcelSize\": 100000,\n            \"maxParcelSize\": 600000\n        }\n    ]\n}"
+						},
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/users/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "This is user 1"
+						},
+						{
+							"name": "vakt/postTrade",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"trade\": \"postTrade\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vakt/postTrade",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										"postTrade"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jul 2021 16:51:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=bf621c49bb162ca2"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=172c3dac9f4db9e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1626427939"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-z/rGfhpPIdvDGC5xy1suCSmB/pQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerTradeId\": \"E1234\",\n    \"vaktTradeId\": \"VAKT1234\"\n}"
+						}
+					]
+				},
+				{
+					"name": "vakt/error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var schema={\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"examples\": [\r",
+									"        {\r",
+									"            \"errorMessage\": \"Get Trade: [vaktTradeId] cannot be found\",\r",
+									"            \"errorDetails\": {\r",
+									"                \"vaktTradeId\": \"Cannot be found.\"\r",
+									"            }\r",
+									"        }\r",
+									"    ],\r",
+									"    \"required\": [\r",
+									"        \"errorMessage\",\r",
+									"        \"errorDetails\"\r",
+									"    ],\r",
+									"    \"properties\": {\r",
+									"        \"errorMessage\": {\r",
+									"            \"$id\": \"#/properties/errorMessage\",\r",
+									"            \"type\": \"string\",\r",
+									"            \"default\": \"\",\r",
+									"            \"examples\": [\r",
+									"                \"Get Trade: [vaktTradeId] cannot be found\"\r",
+									"            ]\r",
+									"        },\r",
+									"        \"errorDetails\": {\r",
+									"            \"$id\": \"#/properties/errorDetails\",\r",
+									"            \"type\": \"object\",\r",
+									"            \"default\": {},\r",
+									"            \"examples\": [\r",
+									"                {\r",
+									"                    \"vaktTradeId\": \"Cannot be found.\"\r",
+									"                }\r",
+									"            ],\r",
+									"            \"required\": [\r",
+									"                \"vaktTradeId\"\r",
+									"            ],\r",
+									"            \"properties\": {\r",
+									"                \"vaktTradeId\": {\r",
+									"                    \"$id\": \"#/properties/errorDetails/properties/vaktTradeId\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"Cannot be found.\"\r",
+									"                    ]\r",
+									"                }\r",
+									"            }\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test('Check Full body Schema is valid', function () {\r",
+									"\r",
+									"    const responseData = pm.response.json();\r",
+									"    const schemaValidationResult = tv4.validate(responseData, schema, false, true);\r",
+									"\r",
+									"    if (schemaValidationResult !== true) {\r",
+									"        console.log('path', tv4.error.dataPath);\r",
+									"        console.log('Full body Schema validation failed:', tv4.error);\r",
+									"    }\r",
+									"\r",
+									"    pm.expect(schemaValidationResult).to.be.true;\r",
+									"    console.log(\"Schema is valid\")\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/vakt/error",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vakt",
+								"error"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "users/4",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/users/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 16:04:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=22f6a79277fe5e35"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=8d4228f0b4d8e4b5"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1623686651"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-4s61GFanbh4FeoWlCq9gLDng4zc\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "This is user 4"
+						},
+						{
+							"name": "users/2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/users/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 16:03:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=c919ef911cb5ba50"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=82f3fce0b18d9709"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "119"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1623686651"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-4s61GFanbh4FeoWlCq9gLDng4zc\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "This is user 222"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/vakt/error",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										"error"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jun 2021 16:03:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=c919ef911cb5ba50"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=82f3fce0b18d9709"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "119"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1623686651"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-4s61GFanbh4FeoWlCq9gLDng4zc\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorMessage\": \"Get Trade: [vaktTradeId] cannot be found\",\n    \"errorDetails\": {\n        \"vaktTradeId\": \"Cannot be found.\"\n    }\n}"
+						},
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/users/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n\t\"customerTradeId\": \"E1234\",\n\t\"vaktTradeId\": \"VAKT1234\",\n\n\t\"status\": \"PAIRED\",\n\t\"tradeFinanceStatus\": \"REQUESTED\",\n\t\"seller\": \"LE927826721\",\n\t\"buyer\": \"LE523957013\",\n\t\"tradeDate\": \"2019-05-02\",\n\t\"product\": \"PR28464563\",\n\t\"productGrade\": \"PG2838454\",\n\t\"quantity\": {\n\t\t\"quantityType\": \"PERCENTAGE\",\n\t\t\"unitOfMeasure\": \"BBL\",\n\t\t\"minimum\": 1,\n\t\t\"maximum\": 1,\n\t\t\"baseQuantity\": 600000\n\t},\n\t\"quantityOption\": \"SELLER\",\n\t\"invoiceQuantity\": \"load\",\n\t\"pricingFormula\": {\n\t\t\"priceType\": \"FIXED\",\n\t\t\"currency\": \"USD\",\n\t\t\"unitOfMeasure\": \"BBL\",\n\t\t\"priceValue\": 81.40\n\t},\n\t\"credit\": \"OPEN_CREDIT\",\n\t\"law\": \"ENGLISH_LAW\",\n\t\"generalTermsAndConditions\": \"SUKO90\",\n\t\"deliveryMonth\": \"2019-12\",\n\t\"paymentTermSelector\": \"EARLIEST\",\n\t\"paymentTerms\": [{\n\t\t\t\"paymentTermType\": \"FLOATING\",\n\t\t\t\"eventBase\": \"BL\",\n\t\t\t\"when\": \"AFTER\",\n\t\t\t\"time\": 30,\n\t\t\t\"timeUnit\": \"DAYS\",\n\t\t\t\"dayType\": \"CALENDAR\",\n\t\t\t\"nonQuoteDays\": \"BEFORE\",\n\t\t\t\"calendar\": \"LONDON\"\n\t\t},\n\t\t{\n\t\t\t\"paymentTermType\": \"FIXED\",\n\t\t\t\"fixedDate\": \"2019-12-01\"\n\t\t}\n\t],\n\t\"deliveryTerms\": \"FOB\",\n\t\"logistics\": [{\n\t\t\"modeOfTransport\": \"VESSEL\",\n\t\t\"loadingLocation\": \"PI30196326\",\n\t\t\"loadingStart\": \"2019-11-25 00:00\",\n\t\t\"loadingEnd\": \"2019-11-31 00:00\",\n\t\t\"dischargeLocation\": \"PI88201954\",\n\t\t\"dischargeStart\": \"2019-12-25 00:00\",\n\t\t\"dischargeEnd\": \"2019-12-31 00:00\",\n\t\t\"laytime\": \"AS_PER_GTC\",\n\t\t\"demurrageTerm\": \"AS_PER_GTC\",\n\t\t\"demurrageTermsAndConditions\": \"SUKO90\",\n\t\t\"minParcelSize\": 100000,\n\t\t\"maxParcelSize\": 600000\n\t}]\n}"
+						}
+					]
+				},
+				{
+					"name": "vakt/getTradeDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.expect(response.customerTradeId).to.eql(pm.environment.get(\"id\"));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/vakt/id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vakt",
+								"id"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/users/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "This is user 1"
+						},
+						{
+							"name": "vakt/getTradeDetails",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/vakt/?id={{id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "{{id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jul 2021 15:54:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=bf621c49bb162ca2"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=172c3dac9f4db9e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1626427939"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-z/rGfhpPIdvDGC5xy1suCSmB/pQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerTradeId\": \"E1234\",\n    \"vaktTradeId\": \"VAKT1234\",\n    \"status\": \"PAIRED\",\n    \"tradeFinanceStatus\": \"REQUESTED\",\n    \"seller\": \"LE927826721\",\n    \"buyer\": \"LE523957013\",\n    \"tradeDate\": \"2019-05-02\",\n    \"product\": \"PR28464563\",\n    \"productGrade\": \"PG2838454\",\n    \"quantity\": {\n        \"quantityType\": \"PERCENTAGE\",\n        \"unitOfMeasure\": \"BBL\",\n        \"minimum\": 1,\n        \"maximum\": 1,\n        \"baseQuantity\": 600000\n    },\n    \"quantityOption\": \"SELLER\",\n    \"invoiceQuantity\": \"load\",\n    \"pricingFormula\": {\n        \"priceType\": \"FIXED\",\n        \"currency\": \"USD\",\n        \"unitOfMeasure\": \"BBL\",\n        \"priceValue\": 81.4\n    },\n    \"credit\": \"OPEN_CREDIT\",\n    \"law\": \"ENGLISH_LAW\",\n    \"generalTermsAndConditions\": \"SUKO90\",\n    \"deliveryMonth\": \"2019-12\",\n    \"paymentTermSelector\": \"EARLIEST\",\n    \"paymentTerms\": [\n        {\n            \"paymentTermType\": \"FLOATING\",\n            \"eventBase\": \"BL\",\n            \"when\": \"AFTER\",\n            \"time\": 30,\n            \"timeUnit\": \"DAYS\",\n            \"dayType\": \"CALENDAR\",\n            \"nonQuoteDays\": \"BEFORE\",\n            \"calendar\": \"LONDON\"\n        },\n        {\n            \"paymentTermType\": \"FIXED\",\n            \"fixedDate\": \"2019-12-01\"\n        }\n    ],\n    \"deliveryTerms\": \"FOB\",\n    \"logistics\": [\n        {\n            \"modeOfTransport\": \"VESSEL\",\n            \"loadingLocation\": \"PI30196326\",\n            \"loadingStart\": \"2019-11-25 00:00\",\n            \"loadingEnd\": \"2019-11-31 00:00\",\n            \"dischargeLocation\": \"PI88201954\",\n            \"dischargeStart\": \"2019-12-25 00:00\",\n            \"dischargeEnd\": \"2019-12-31 00:00\",\n            \"laytime\": \"AS_PER_GTC\",\n            \"demurrageTerm\": \"AS_PER_GTC\",\n            \"demurrageTermsAndConditions\": \"SUKO90\",\n            \"minParcelSize\": 100000,\n            \"maxParcelSize\": 600000\n        }\n    ]\n}"
+						},
+						{
+							"name": "vakt/getTrade",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/vakt/getTrade",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										"getTrade"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jul 2021 09:31:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=bf621c49bb162ca2"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=172c3dac9f4db9e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1626427939"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-z/rGfhpPIdvDGC5xy1suCSmB/pQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerTradeId\": \"E1234\",\n    \"vaktTradeId\": \"VAKT1234\",\n    \"status\": \"PAIRED\",\n    \"tradeFinanceStatus\": \"REQUESTED\",\n    \"seller\": \"LE927826721\",\n    \"buyer\": \"LE523957013\",\n    \"tradeDate\": \"2019-05-02\",\n    \"product\": \"PR28464563\",\n    \"productGrade\": \"PG2838454\",\n    \"quantity\": {\n        \"quantityType\": \"PERCENTAGE\",\n        \"unitOfMeasure\": \"BBL\",\n        \"minimum\": 1,\n        \"maximum\": 1,\n        \"baseQuantity\": 600000\n    },\n    \"quantityOption\": \"SELLER\",\n    \"invoiceQuantity\": \"load\",\n    \"pricingFormula\": {\n        \"priceType\": \"FIXED\",\n        \"currency\": \"USD\",\n        \"unitOfMeasure\": \"BBL\",\n        \"priceValue\": 81.4\n    },\n    \"credit\": \"OPEN_CREDIT\",\n    \"law\": \"ENGLISH_LAW\",\n    \"generalTermsAndConditions\": \"SUKO90\",\n    \"deliveryMonth\": \"2019-12\",\n    \"paymentTermSelector\": \"EARLIEST\",\n    \"paymentTerms\": [\n        {\n            \"paymentTermType\": \"FLOATING\",\n            \"eventBase\": \"BL\",\n            \"when\": \"AFTER\",\n            \"time\": 30,\n            \"timeUnit\": \"DAYS\",\n            \"dayType\": \"CALENDAR\",\n            \"nonQuoteDays\": \"BEFORE\",\n            \"calendar\": \"LONDON\"\n        },\n        {\n            \"paymentTermType\": \"FIXED\",\n            \"fixedDate\": \"2019-12-01\"\n        }\n    ],\n    \"deliveryTerms\": \"FOB\",\n    \"logistics\": [\n        {\n            \"modeOfTransport\": \"VESSEL\",\n            \"loadingLocation\": \"PI30196326\",\n            \"loadingStart\": \"2019-11-25 00:00\",\n            \"loadingEnd\": \"2019-11-31 00:00\",\n            \"dischargeLocation\": \"PI88201954\",\n            \"dischargeStart\": \"2019-12-25 00:00\",\n            \"dischargeEnd\": \"2019-12-31 00:00\",\n            \"laytime\": \"AS_PER_GTC\",\n            \"demurrageTerm\": \"AS_PER_GTC\",\n            \"demurrageTermsAndConditions\": \"SUKO90\",\n            \"minParcelSize\": 100000,\n            \"maxParcelSize\": 600000\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "vakt/postTrade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"id\", response.customerTradeId);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trade\": \"postTrade\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/vakt/postTrade",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vakt",
+								"postTrade"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "vakt/getTradeDetails",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/vakt/id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										"id"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jul 2021 15:54:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=bf621c49bb162ca2"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=172c3dac9f4db9e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1626427939"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-z/rGfhpPIdvDGC5xy1suCSmB/pQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerTradeId\": \"E1234\",\n    \"vaktTradeId\": \"VAKT1234\",\n    \"status\": \"PAIRED\",\n    \"tradeFinanceStatus\": \"REQUESTED\",\n    \"seller\": \"LE927826721\",\n    \"buyer\": \"LE523957013\",\n    \"tradeDate\": \"2019-05-02\",\n    \"product\": \"PR28464563\",\n    \"productGrade\": \"PG2838454\",\n    \"quantity\": {\n        \"quantityType\": \"PERCENTAGE\",\n        \"unitOfMeasure\": \"BBL\",\n        \"minimum\": 1,\n        \"maximum\": 1,\n        \"baseQuantity\": 600000\n    },\n    \"quantityOption\": \"SELLER\",\n    \"invoiceQuantity\": \"load\",\n    \"pricingFormula\": {\n        \"priceType\": \"FIXED\",\n        \"currency\": \"USD\",\n        \"unitOfMeasure\": \"BBL\",\n        \"priceValue\": 81.4\n    },\n    \"credit\": \"OPEN_CREDIT\",\n    \"law\": \"ENGLISH_LAW\",\n    \"generalTermsAndConditions\": \"SUKO90\",\n    \"deliveryMonth\": \"2019-12\",\n    \"paymentTermSelector\": \"EARLIEST\",\n    \"paymentTerms\": [\n        {\n            \"paymentTermType\": \"FLOATING\",\n            \"eventBase\": \"BL\",\n            \"when\": \"AFTER\",\n            \"time\": 30,\n            \"timeUnit\": \"DAYS\",\n            \"dayType\": \"CALENDAR\",\n            \"nonQuoteDays\": \"BEFORE\",\n            \"calendar\": \"LONDON\"\n        },\n        {\n            \"paymentTermType\": \"FIXED\",\n            \"fixedDate\": \"2019-12-01\"\n        }\n    ],\n    \"deliveryTerms\": \"FOB\",\n    \"logistics\": [\n        {\n            \"modeOfTransport\": \"VESSEL\",\n            \"loadingLocation\": \"PI30196326\",\n            \"loadingStart\": \"2019-11-25 00:00\",\n            \"loadingEnd\": \"2019-11-31 00:00\",\n            \"dischargeLocation\": \"PI88201954\",\n            \"dischargeStart\": \"2019-12-25 00:00\",\n            \"dischargeEnd\": \"2019-12-31 00:00\",\n            \"laytime\": \"AS_PER_GTC\",\n            \"demurrageTerm\": \"AS_PER_GTC\",\n            \"demurrageTermsAndConditions\": \"SUKO90\",\n            \"minParcelSize\": 100000,\n            \"maxParcelSize\": 600000\n        }\n    ]\n}"
+						},
+						{
+							"name": "vakt/getTrade",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/vakt/getTrade",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										"getTrade"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jul 2021 09:31:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=bf621c49bb162ca2"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=172c3dac9f4db9e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1626427939"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-z/rGfhpPIdvDGC5xy1suCSmB/pQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerTradeId\": \"E1234\",\n    \"vaktTradeId\": \"VAKT1234\",\n    \"status\": \"PAIRED\",\n    \"tradeFinanceStatus\": \"REQUESTED\",\n    \"seller\": \"LE927826721\",\n    \"buyer\": \"LE523957013\",\n    \"tradeDate\": \"2019-05-02\",\n    \"product\": \"PR28464563\",\n    \"productGrade\": \"PG2838454\",\n    \"quantity\": {\n        \"quantityType\": \"PERCENTAGE\",\n        \"unitOfMeasure\": \"BBL\",\n        \"minimum\": 1,\n        \"maximum\": 1,\n        \"baseQuantity\": 600000\n    },\n    \"quantityOption\": \"SELLER\",\n    \"invoiceQuantity\": \"load\",\n    \"pricingFormula\": {\n        \"priceType\": \"FIXED\",\n        \"currency\": \"USD\",\n        \"unitOfMeasure\": \"BBL\",\n        \"priceValue\": 81.4\n    },\n    \"credit\": \"OPEN_CREDIT\",\n    \"law\": \"ENGLISH_LAW\",\n    \"generalTermsAndConditions\": \"SUKO90\",\n    \"deliveryMonth\": \"2019-12\",\n    \"paymentTermSelector\": \"EARLIEST\",\n    \"paymentTerms\": [\n        {\n            \"paymentTermType\": \"FLOATING\",\n            \"eventBase\": \"BL\",\n            \"when\": \"AFTER\",\n            \"time\": 30,\n            \"timeUnit\": \"DAYS\",\n            \"dayType\": \"CALENDAR\",\n            \"nonQuoteDays\": \"BEFORE\",\n            \"calendar\": \"LONDON\"\n        },\n        {\n            \"paymentTermType\": \"FIXED\",\n            \"fixedDate\": \"2019-12-01\"\n        }\n    ],\n    \"deliveryTerms\": \"FOB\",\n    \"logistics\": [\n        {\n            \"modeOfTransport\": \"VESSEL\",\n            \"loadingLocation\": \"PI30196326\",\n            \"loadingStart\": \"2019-11-25 00:00\",\n            \"loadingEnd\": \"2019-11-31 00:00\",\n            \"dischargeLocation\": \"PI88201954\",\n            \"dischargeStart\": \"2019-12-25 00:00\",\n            \"dischargeEnd\": \"2019-12-31 00:00\",\n            \"laytime\": \"AS_PER_GTC\",\n            \"demurrageTerm\": \"AS_PER_GTC\",\n            \"demurrageTermsAndConditions\": \"SUKO90\",\n            \"minParcelSize\": 100000,\n            \"maxParcelSize\": 600000\n        }\n    ]\n}"
+						},
+						{
+							"name": "vakt/postTrade",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerTradeId\": \"E1234\",\r\n    \"vaktTradeId\": \"VAKT1234\",\r\n    \"status\": \"PAIRED\",\r\n    \"tradeFinanceStatus\": \"REQUESTED\",\r\n    \"seller\": \"LE927826721\",\r\n    \"buyer\": \"LE523957013\",\r\n    \"tradeDate\": \"2019-05-02\",\r\n    \"product\": \"PR28464563\",\r\n    \"productGrade\": \"PG2838454\",\r\n    \"quantity\": {\r\n        \"quantityType\": \"PERCENTAGE\",\r\n        \"unitOfMeasure\": \"BBL\",\r\n        \"minimum\": 1,\r\n        \"maximum\": 1,\r\n        \"baseQuantity\": 600000\r\n    },\r\n    \"quantityOption\": \"SELLER\",\r\n    \"invoiceQuantity\": \"load\",\r\n    \"pricingFormula\": {\r\n        \"priceType\": \"FIXED\",\r\n        \"currency\": \"USD\",\r\n        \"unitOfMeasure\": \"BBL\",\r\n        \"priceValue\": 81.4\r\n    },\r\n    \"credit\": \"OPEN_CREDIT\",\r\n    \"law\": \"ENGLISH_LAW\",\r\n    \"generalTermsAndConditions\": \"SUKO90\",\r\n    \"deliveryMonth\": \"2019-12\",\r\n    \"paymentTermSelector\": \"EARLIEST\",\r\n    \"paymentTerms\": [\r\n        {\r\n            \"paymentTermType\": \"FLOATING\",\r\n            \"eventBase\": \"BL\",\r\n            \"when\": \"AFTER\",\r\n            \"time\": 30,\r\n            \"timeUnit\": \"DAYS\",\r\n            \"dayType\": \"CALENDAR\",\r\n            \"nonQuoteDays\": \"BEFORE\",\r\n            \"calendar\": \"LONDON\"\r\n        },\r\n        {\r\n            \"paymentTermType\": \"FIXED\",\r\n            \"fixedDate\": \"2019-12-01\"\r\n        }\r\n    ],\r\n    \"deliveryTerms\": \"FOB\",\r\n    \"logistics\": [\r\n        {\r\n            \"modeOfTransport\": \"VESSEL\",\r\n            \"loadingLocation\": \"PI30196326\",\r\n            \"loadingStart\": \"2019-11-25 00:00\",\r\n            \"loadingEnd\": \"2019-11-31 00:00\",\r\n            \"dischargeLocation\": \"PI88201954\",\r\n            \"dischargeStart\": \"2019-12-25 00:00\",\r\n            \"dischargeEnd\": \"2019-12-31 00:00\",\r\n            \"laytime\": \"AS_PER_GTC\",\r\n            \"demurrageTerm\": \"AS_PER_GTC\",\r\n            \"demurrageTermsAndConditions\": \"SUKO90\",\r\n            \"minParcelSize\": 100000,\r\n            \"maxParcelSize\": 600000\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vakt/postTrade",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vakt",
+										"postTrade"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 16 Jul 2021 16:51:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=bf621c49bb162ca2"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=172c3dac9f4db9e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "118"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1626427939"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-z/rGfhpPIdvDGC5xy1suCSmB/pQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customerTradeId\": \"E1234\",\n    \"vaktTradeId\": \"VAKT1234\"\n}"
+						},
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/users/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "This is user 1"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test.skip(\"Headers are present\", function(){",
+							"    pm.response.to.have.header(\"Cache-Control\",\"no-cache\");",
+							"    pm.response.to.have.header(\"X-Content-Type-Options\",\"nosniff\");   ",
+							"    pm.response.to.not.have.header(\"X-Powered-By\");",
+							"   ",
+							"})",
+							"",
+							"pm.test.skip(\"Headers are not present\", function(){",
+							"    pm.response.to.not.have.header(\"X-AspNet-Version\");",
+							"    pm.expect(pm.response.headers.get(\"Strict-Transport-Security\")).to.include(\"max-age\");",
+							"",
+							"})"
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
