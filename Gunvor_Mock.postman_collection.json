@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "VAKT_Test2",
+			"name": "VAKT",
 			"item": [
 				{
 					"name": "vakt/getTrade",
@@ -38,6 +38,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -412,7 +422,7 @@
 									"    }\r",
 									"}\r",
 									"\r",
-									"pm.test('Check Full body Schema is valid', function () {\r",
+									"pm.test.skip('Check Full body Schema is valid', function () {\r",
 									"\r",
 									"    const responseData = pm.response.json();\r",
 									"    const schemaValidationResult = tv4.validate(responseData, schema, false, true);\r",
@@ -982,7 +992,6 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.environment.set(\"id\", response.customerTradeId);\r",
 									"\r",
 									"\r",
 									""
@@ -1002,7 +1011,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"trade\": \"postTrade\"\r\n}"
+							"raw": "{\r\n    \"customerTradeId\": \"{{$guid}}\",\r\n    \"vaktTradeId\": \"{{$randomUUID}}\",\r\n    \"status\": \"{{$randomBoolean}}\",\r\n    \"tradeFinanceStatus\": \"{{$randomBoolean}}+'Requested'\",\r\n    \"seller\": \"{{url}}\",\r\n    \"buyer\": \"LE523957013\",\r\n    \"tradeDate\": \"2019-05-02\",\r\n    \"product\": \"PR28464563\",\r\n    \"productGrade\": \"PG2838454\",\r\n    \"quantity\": {\r\n        \"quantityType\": \"PERCENTAGE\",\r\n        \"unitOfMeasure\": \"BBL\",\r\n        \"minimum\": 1,\r\n        \"maximum\": 1,\r\n        \"baseQuantity\": 600000\r\n    },\r\n    \"quantityOption\": \"SELLER\",\r\n    \"invoiceQuantity\": \"load\",\r\n    \"pricingFormula\": {\r\n        \"priceType\": \"FIXED\",\r\n        \"currency\": \"USD\",\r\n        \"unitOfMeasure\": \"BBL\",\r\n        \"priceValue\": {{$randomInt}}\r\n    },\r\n    \"credit\": \"OPEN_CREDIT\",\r\n    \"law\": \"ENGLISH_LAW\",\r\n    \"generalTermsAndConditions\": \"SUKO90\",\r\n    \"deliveryMonth\": \"2019-12\",\r\n    \"paymentTermSelector\": \"EARLIEST\",\r\n    \"paymentTerms\": [\r\n        {\r\n            \"paymentTermType\": \"FLOATING\",\r\n            \"eventBase\": \"BL\",\r\n            \"when\": \"AFTER\",\r\n            \"time\": 30,\r\n            \"timeUnit\": \"DAYS\",\r\n            \"dayType\": \"CALENDAR\",\r\n            \"nonQuoteDays\": \"BEFORE\",\r\n            \"calendar\": \"LONDON\"\r\n        },\r\n        {\r\n            \"paymentTermType\": \"FIXED\",\r\n            \"fixedDate\": \"2019-12-01\"\r\n        }\r\n    ],\r\n    \"deliveryTerms\": \"FOB\",\r\n    \"logistics\": [\r\n        {\r\n            \"modeOfTransport\": \"VESSEL\",\r\n            \"loadingLocation\": \"PI30196326\",\r\n            \"loadingStart\": \"2019-11-25 00:00\",\r\n            \"loadingEnd\": \"2019-11-31 00:00\",\r\n            \"dischargeLocation\": \"PI88201954\",\r\n            \"dischargeStart\": \"2019-12-25 00:00\",\r\n            \"dischargeEnd\": \"2019-12-31 00:00\",\r\n            \"laytime\": \"AS_PER_GTC\",\r\n            \"demurrageTerm\": \"AS_PER_GTC\",\r\n            \"demurrageTermsAndConditions\": \"SUKO90\",\r\n            \"minParcelSize\": 100000,\r\n            \"maxParcelSize\": 600000\r\n        }\r\n    ]\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/vakt/postTrade",
@@ -1347,6 +1356,9 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
+					"const token=\"token\";",
+					"",
+					"pm.environment.set(\"token\", token);",
 					""
 				]
 			}
