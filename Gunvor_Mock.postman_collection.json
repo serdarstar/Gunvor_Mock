@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "VAKT",
+			"name": "VAKT_Test",
 			"item": [
 				{
 					"name": "vakt/getTrade",
